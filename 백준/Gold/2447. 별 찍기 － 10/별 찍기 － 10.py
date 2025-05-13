@@ -1,18 +1,19 @@
-def star(n):
-    if n == 1:
-        return ['***', '* *', '***']
-    
-    star_list = []
-    
-    for item in star(n//3): # 1번째 줄
-        star_list.append(item * 3)
-    for item in star(n//3): # 2번째 줄
-        star_list.append(item + ' ' * n + item)
-    for item in star(n//3): # 3번쨰 줄
-        star_list.append(item * 3)
-        
-    return star_list
 
 
-n = int(input())
-print('\n'.join(star(n//3)))
+def main(N):
+    if N == 1:
+        return ['***','* *','***']
+    
+    result = []    
+    
+    for row in main(N//3):
+        result.append(row*3)
+    for row in main(N//3):
+        result.append(row+' ' * N+row)
+    for row in main(N//3):
+        result.append(row*3)
+    return result
+
+if __name__ == '__main__':
+    N = int(int(input()))    
+    print('\n'.join(main(N//3)))
